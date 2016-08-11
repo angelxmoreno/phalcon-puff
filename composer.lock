@@ -4,9 +4,66 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "68ad0e9c5e13091e0a7b3eee8c5ee673",
-    "content-hash": "b874b40192ecc1b331e25c55705bd471",
-    "packages": [],
+    "hash": "a8910b1ff0540244b74c0cf7ca365877",
+    "content-hash": "1595dc32e2d7afef5f009553b9623e18",
+    "packages": [
+        {
+            "name": "phalcon/devtools",
+            "version": "v2.0.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phalcon/phalcon-devtools.git",
+                "reference": "660df5e050af2fe0f8a941402cc5492614e82d9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phalcon/phalcon-devtools/zipball/660df5e050af2fe0f8a941402cc5492614e82d9d",
+                "reference": "660df5e050af2fe0f8a941402cc5492614e82d9d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-phalcon": "^2.0",
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "kherge/box": "^2.7"
+            },
+            "bin": [
+                "phalcon.php"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Phalcon\\": "scripts/Phalcon/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Phalcon Team",
+                    "email": "team@phalconphp.com"
+                }
+            ],
+            "description": "This tools provide you useful scripts to generate code helping to develop faster and easy applications that use with Phalcon framework.",
+            "homepage": "http://phalconphp.com",
+            "keywords": [
+                "Devtools",
+                "framework",
+                "phalcon",
+                "phar",
+                "webtools"
+            ],
+            "time": "2016-05-21 09:44:47"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
