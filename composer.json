@@ -1,0 +1,12 @@
+{
+    "name": "amoreno/phalcon-puff",
+    "authors": [
+        {
+            "name": "Angel S. Moreno",
+            "email": "angelxmoreno@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-phalcon": "^2.0"
+    }
+}
