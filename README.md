@@ -1,5 +1,5 @@
 # Phalcon-Puff
-A Phalcon App Demo
+A Phalcon Demo App
 
 ##  3rd Party tools and services
 1. Facebook SDK - https://github.com/facebook/facebook-php-sdk-v4/

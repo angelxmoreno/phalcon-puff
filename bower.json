@@ -1,11 +1,11 @@
 {
   "name": "phalcon-puff",
-  "description": "",
+  "description": "A Phalcon Demo App",
   "main": "bin/index.js",
   "authors": [
     "Angel S. Moreno <angelxmoreno@gmail.com> (https://angelxmoreno.github.io/)"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "",
   "ignore": [
     "**/.*",
