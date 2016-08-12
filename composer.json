@@ -1,5 +1,7 @@
 {
   "name": "amoreno/phalcon-puff",
+  "version": "0.1.0",
+  "description": "A Phalcon Demo App",
   "authors": [
     {
       "name": "Angel S. Moreno",
@@ -23,7 +25,7 @@
     "deploy": "git push heroku master",
     "start-dev": "php -S localhost:8000 -t public",
     "test": "echo 'no tests yet'",
-    "post-install-cmd":"npm install"
+    "post-install-cmd": "npm install"
   },
   "config": {
     "bin-dir": "bin"
