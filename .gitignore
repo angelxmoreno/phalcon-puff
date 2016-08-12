@@ -3,3 +3,5 @@ vendor/
 node_modules/
 bin/*
 !bin/after-npm
+cache/views/*
+!cache/views/.gitkeep

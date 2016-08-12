@@ -37,20 +37,19 @@ $di->setShared('view', function () use ($config) {
 
     $view->setViewsDir($config->application->viewsDir);
 
-    $view->registerEngines(array(
+    $view->registerEngines([
         '.volt' => function ($view, $di) use ($config) {
-
             $volt = new VoltEngine($view, $di);
-
-            $volt->setOptions(array(
-                'compiledPath' => $config->application->cacheDir,
+            var_dump($config->application->cacheDir . DS . 'views');
+            $volt->setOptions([
+                'compiledPath' => $config->application->cacheDir . DS . 'views' . DS,
                 'compiledSeparator' => '_'
-            ));
+            ]);
 
             return $volt;
         },
         '.phtml' => 'Phalcon\Mvc\View\Engine\Php'
-    ));
+    ]);
 
     return $view;
 });
@@ -63,9 +62,9 @@ $di->setShared('db', function () use ($config) {
     $adapter = $dbConfig['adapter'];
     unset($dbConfig['adapter']);
 
-    $class = 'Phalcon\Db\Adapter\Pdo\\' . $adapter;
+    $pdo_class = 'Phalcon\Db\Adapter\Pdo\\' . $adapter;
 
-    return new $class($dbConfig);
+    return new $pdo_class($dbConfig);
 });
 
 /**
@@ -80,9 +79,9 @@ $di->setShared('modelsMetadata', function () {
  */
 $di->set('flash', function () {
     return new Flash(array(
-        'error'   => 'alert alert-danger',
+        'error' => 'alert alert-danger',
         'success' => 'alert alert-success',
-        'notice'  => 'alert alert-info',
+        'notice' => 'alert alert-info',
         'warning' => 'alert alert-warning'
     ));
 });
