@@ -1,5 +1,4 @@
 <?php
-
 return [
     'database' => [
         'adapter' => 'Mysql',
@@ -13,10 +12,19 @@ return [
         'controllersDir' => APP_PATH . 'controllers' . DS,
         'modelsDir' => APP_PATH . 'models' . DS,
         'migrationsDir' => APP_PATH . 'migrations' . DS,
-        'viewsDir' => APP_PATH . 'views' . DS,
+        'viewsDir' => VIEWS_PATH,
         'pluginsDir' => APP_PATH . 'plugins' . DS,
         'libraryDir' => APP_PATH . 'library' . DS,
-        'cacheDir' => ROOT_PATH . 'cache' . DS,
-        'baseUri' => DS . 'src' . DS
+        'cacheDir' => CACHE_PATH,
+        'baseUri' => ''
+    ],
+    'view' => [
+        'options' => [
+            'compiledPath' => CACHE_PATH . 'views' . DS,
+            'compiledExtension' => '.php',
+            'compiledSeparator' => '__',
+            'stat' => true,
+            'compileAlways' => true,
+        ]
     ]
 ];

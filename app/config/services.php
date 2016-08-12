@@ -40,12 +40,7 @@ $di->setShared('view', function () use ($config) {
     $view->registerEngines([
         '.volt' => function ($view, $di) use ($config) {
             $volt = new VoltEngine($view, $di);
-            var_dump($config->application->cacheDir . DS . 'views');
-            $volt->setOptions([
-                'compiledPath' => $config->application->cacheDir . DS . 'views' . DS,
-                'compiledSeparator' => '_'
-            ]);
-
+            $volt->setOptions($config->view->options->toArray());
             return $volt;
         },
         '.phtml' => 'Phalcon\Mvc\View\Engine\Php'

@@ -1,4 +1,5 @@
 <?php
+
 use Phalcon\Mvc\Application as PhalconApplication;
 use Phalcon\Config as PhalconConfig;
 
@@ -8,6 +9,8 @@ define('WEBROOT_PATH', __DIR__ . DS);
 define('ROOT_PATH', dirname(WEBROOT_PATH) . DS);
 define('APP_PATH', ROOT_PATH . 'app' . DS);
 define('CONFIG_PATH', APP_PATH . 'config' . DS);
+define('CACHE_PATH', ROOT_PATH . 'cache' . DS);
+define('VIEWS_PATH', ROOT_PATH . 'views' . DS);
 
 try {
     /**
@@ -32,7 +35,6 @@ try {
     $application = new PhalconApplication($di);
 
     echo $application->handle()->getContent();
-
 } catch (\Exception $e) {
     echo $e->getMessage() . '<br>';
     echo '<pre>' . $e->getTraceAsString() . '</pre>';

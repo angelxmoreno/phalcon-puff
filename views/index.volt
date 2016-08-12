@@ -11,10 +11,20 @@
 
     <title>Modern Business - Start Bootstrap Template</title>
 
-    <link href="/vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/modern-business.css" rel="stylesheet">
-    <link href="/vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    {% do assets
+        .collection('header')
+        .addCss('/vendor/bootstrap/dist/css/bootstrap.css')
+        .addCss('/css/modern-business.css')
+        .addCss('/vendor/font-awesome/css/font-awesome.css')
+    %}
 
+    {% do assets
+        .collection('footer')
+        .addJs('/vendor/jquery/dist/jquery.js')
+        .addJs('/vendor/bootstrap/dist/js/bootstrap.js')
+    %}
+
+    {{ assets.outputCss('header') }}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,28 +35,18 @@
 </head>
 
 <body>
-{{ partial('partials/nav') }}
+
+{% include('partials/nav') %}
 {% if show_carousel %}
-    {{ partial('partials/carousel') }}
+    {% include('partials/carousel') %}
 {% endif %}
 <!-- Page Content -->
 <div class="container">
     {{ content() }}
     <hr>
-
-    <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
-            </div>
-        </div>
-    </footer>
-
+    {% include('partials/footer') %}
 </div>
-
-<script src="/vendor/jquery/dist/jquery.js"></script>
-<script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
+{{ assets.outputJs('footer') }}
 
 <!-- Script to Activate the Carousel -->
 <script>
