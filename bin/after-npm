@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT', dirname(__DIR__) . DS);
+define('APP_BIN_DIR', ROOT . 'bin' . DS);
+define('NODE_BIN_DIR', ROOT . 'node_modules' . DS . '.bin' . DS);
+$node_bin_files = [];
+$node_bin_targets = [];
+$bin_files = scandir(NODE_BIN_DIR);
+
+//print_r($bin_files);
+
+foreach ($bin_files as $bin_file) {
+    if ($bin_file !== '.' && $bin_file !== '..') {
+        $link = APP_BIN_DIR . $bin_file;
+        $target = '../node_modules/.bin/' . readlink(NODE_BIN_DIR . $bin_file);
+        if(!file_exists($link)){
+            symlink($target, $link);
+        }
+    }
+}
