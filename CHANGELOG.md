@@ -1,4 +1,5 @@
 WIP v0.2.0 - 2016-08-13 2:25am EST
+* added logging
 * refactored directory structure
     * app dir is now src
     * config dir is root level

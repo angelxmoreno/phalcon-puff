@@ -11,6 +11,7 @@ define('CONFIG_PATH', ROOT_PATH . 'config' . DS);
 define('CACHE_PATH', ROOT_PATH . 'cache' . DS);
 define('VIEWS_PATH', ROOT_PATH . 'views' . DS);
 define('VENDOR_PATH', ROOT_PATH . 'vendor' . DS);
+define('LOGS_PATH', ROOT_PATH . 'logs' . DS);
 
 try {
     /**
@@ -18,7 +19,7 @@ try {
      * This should always be UTC
      */
     date_default_timezone_set('UTC');
-    
+
     /**
      * Read the configuration
      */
@@ -44,4 +45,9 @@ try {
 } catch (\Exception $e) {
     echo $e->getMessage() . '<br>';
     echo '<pre>' . $e->getTraceAsString() . '</pre>';
+    $log_message = '"' . get_class($e) . '"';
+    $log_message .= ': "' . $e->getMessage() . '"';
+    $log_message .= ' file: "' . $e->getFile() . '"';
+    $log_message .= ' line: "' . $e->getLine() . '"';
+    $di->getShared('logger')->error($log_message);
 }

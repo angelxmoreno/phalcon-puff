@@ -26,5 +26,11 @@ return [
             'stat' => true,
             'compileAlways' => true,
         ]
+    ],
+    'logger' => [
+        'adapters' => [
+            'FirePHP' => '',
+            'File' => LOGS_PATH . 'app.log',
+        ]
     ]
 ];
