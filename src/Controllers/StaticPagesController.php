@@ -1,6 +1,7 @@
 <?php
+namespace AXM\Controllers;
 
-class StaticPagesController extends ControllerBase
+class StaticPagesController extends BaseController
 {
 
     public function IndexAction($page)
@@ -8,7 +9,7 @@ class StaticPagesController extends ControllerBase
 //        $this->view->pick('static-pages/about');
         $inferred_view = $this->getInferredView($page);
         $inferred_path = $this->getInferredPath($page);
-        if(file_exists($inferred_path)){
+        if (file_exists($inferred_path)) {
             $this->view->pick($inferred_view);
         } else {
             echo $inferred_view;
@@ -20,7 +21,7 @@ class StaticPagesController extends ControllerBase
     {
         return 'static-pages' . DS . $page;
     }
-    
+
     protected function getInferredPath($page)
     {
         return VIEWS_PATH . 'static-pages' . DS . $page . '.volt';

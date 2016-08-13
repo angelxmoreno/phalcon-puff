@@ -1,20 +1,39 @@
 <?php
+
 /**
  * Services are globally registered in this file
  *
  * @var \Phalcon\Config $config
  */
 use Phalcon\Di\FactoryDefault;
+use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Files as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
+use AXM\Mvc\Router;
 
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
  */
 $di = new FactoryDefault();
+
+/**
+ * add routing capabilities
+ */
+$di->set('router', function() {
+    $router = new Router();
+    require_once CONFIG_PATH . 'routes.php';
+    return $router;
+});
+
+// Register the default dispatcher's namespace for controllers
+$di->set('dispatcher', function () {
+    $dispatcher = new Dispatcher();
+    $dispatcher->setDefaultNamespace('AXM\Controllers');
+    return $dispatcher;
+});
 
 /**
  * Setting up the view component
