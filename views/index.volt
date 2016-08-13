@@ -37,7 +37,7 @@
 <body>
 
 {% include('partials/nav') %}
-{% if show_carousel %}
+{% if show_carousel is defined %}
     {% include('partials/carousel') %}
 {% endif %}
 <!-- Page Content -->
