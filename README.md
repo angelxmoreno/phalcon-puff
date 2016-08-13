@@ -10,3 +10,9 @@ A Phalcon Demo App
 6. Instagram-PHP-API - https://github.com/cosenary/Instagram-PHP-API
 7. HybridAuth - https://github.com/hybridauth/hybridauth
 8. Start Bootstrap Modern Business Template - https://startbootstrap.com/template-overviews/modern-business/
+9. Carbon - http://carbon.nesbot.com/
+10. Guzzle - htp://guzzlephp.org/
+11. kahlan - http://kahlan.readthedocs.io/
+12. Composer - https://getcomposer.org/
+13. NPM - https://www.npmjs.com/
+14. Bower - https://bower.io/

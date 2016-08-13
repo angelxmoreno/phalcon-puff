@@ -1,3 +1,12 @@
+WIP v0.2.0 - 2016-08-13 2:25am EST
+* refactored directory structure
+    * app dir is now src
+    * config dir is root level
+* added routing
+* created AXM\StaticPagesController
+* created AXM\Router to define static page routes
+* improved views
+
 v0.1.0 - 2016-08-12 3:39am EST
 * made a CHANGELOG file
 
