@@ -11,6 +11,7 @@ define('APP_PATH', ROOT_PATH . 'app' . DS);
 define('CONFIG_PATH', APP_PATH . 'config' . DS);
 define('CACHE_PATH', ROOT_PATH . 'cache' . DS);
 define('VIEWS_PATH', ROOT_PATH . 'views' . DS);
+define('VENDOR_PATH', ROOT_PATH . 'vendor' . DS);
 
 try {
     /**

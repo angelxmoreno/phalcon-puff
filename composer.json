@@ -1,33 +1,38 @@
 {
-  "name": "amoreno/phalcon-puff",
-  "version": "0.1.0",
-  "description": "A Phalcon Demo App",
-  "authors": [
-    {
-      "name": "Angel S. Moreno",
-      "email": "angelxmoreno@gmail.com"
+    "name": "amoreno/phalcon-puff",
+    "version": "0.1.0",
+    "description": "A Phalcon Demo App",
+    "authors": [
+        {
+            "name": "Angel S. Moreno",
+            "email": "angelxmoreno@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AXM\\": "app/"
+        }
+    },
+    "require": {
+        "ext-phalcon": "^2.0",
+        "vlucas/phpdotenv": "^2.3",
+        "phalcon/incubator": "^2.0",
+        "facebook/php-sdk-v4": "^5.3",
+        "cosenary/instagram": "^2.3",
+        "guzzlehttp/guzzle": "^6.2",
+        "hybridauth/hybridauth": "^2.6"
+    },
+    "require-dev": {
+        "crysalead/kahlan": "^2.5",
+        "phalcon/devtools": "^2.0"
+    },
+    "scripts": {
+        "deploy": "git push heroku master",
+        "start-dev": "php -S localhost:8000 -t public",
+        "test": "echo 'no tests yet'",
+        "post-install-cmd": "npm install"
+    },
+    "config": {
+        "bin-dir": "bin"
     }
-  ],
-  "require": {
-    "ext-phalcon": "^2.0",
-    "vlucas/phpdotenv": "^2.3",
-    "phalcon/incubator": "^2.0",
-    "facebook/php-sdk-v4": "^5.3",
-    "cosenary/instagram": "^2.3",
-    "guzzlehttp/guzzle": "^6.2",
-    "hybridauth/hybridauth": "^2.6"
-  },
-  "require-dev": {
-    "crysalead/kahlan": "^2.5",
-    "phalcon/devtools": "^2.0"
-  },
-  "scripts": {
-    "deploy": "git push heroku master",
-    "start-dev": "php -S localhost:8000 -t public",
-    "test": "echo 'no tests yet'",
-    "post-install-cmd": "npm install"
-  },
-  "config": {
-    "bin-dir": "bin"
-  }
 }

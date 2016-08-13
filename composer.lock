@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8ea208f8cbd81ff51d515276690c8082",
-    "content-hash": "620bb5018aa20a2cbd848a9aebe8f556",
+    "hash": "a56579c5a542b171ad2368218ca55897",
+    "content-hash": "f6f165f4acd117d5d2e36df9f2ccbdf5",
     "packages": [
         {
             "name": "cosenary/instagram",
@@ -543,16 +543,16 @@
     "packages-dev": [
         {
             "name": "crysalead/kahlan",
-            "version": "2.5.4",
+            "version": "2.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/crysalead/kahlan.git",
-                "reference": "0f5deb7faa3a7a324bf0dc0186190ea18bc1eff3"
+                "reference": "cf1bd43766d8ca98d5824065e57aabeb9aed8149"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/crysalead/kahlan/zipball/0f5deb7faa3a7a324bf0dc0186190ea18bc1eff3",
-                "reference": "0f5deb7faa3a7a324bf0dc0186190ea18bc1eff3",
+                "url": "https://api.github.com/repos/crysalead/kahlan/zipball/cf1bd43766d8ca98d5824065e57aabeb9aed8149",
+                "reference": "cf1bd43766d8ca98d5824065e57aabeb9aed8149",
                 "shasum": ""
             },
             "require": {
@@ -590,7 +590,7 @@
                 "testing",
                 "unit test"
             ],
-            "time": "2016-06-15 15:07:49"
+            "time": "2016-08-12 22:41:37"
         },
         {
             "name": "phalcon/devtools",
