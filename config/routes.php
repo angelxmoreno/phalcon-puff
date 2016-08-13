@@ -2,5 +2,5 @@
 namespace AXM\Controllers;
 
 $router->removeExtraSlashes(true);
-$router->addStatic('/contact', 'contact');
+$router->addStatic('/about', 'about');
 $router->addStatic('/contact', 'contact');
