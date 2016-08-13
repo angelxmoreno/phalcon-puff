@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Services are globally registered in this file
  *
@@ -12,6 +11,7 @@ use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Files as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
+use Phalcon\Logger\Multiple as MultiLogger;
 use AXM\Mvc\Router;
 
 /**
@@ -94,4 +94,17 @@ $di->setShared('session', function () {
     $session = new SessionAdapter();
     $session->start();
     return $session;
+});
+
+/**
+ * Register logging
+ */
+$di->setShared('logger', function () use ($config) {
+    $logger = new MultiLogger();
+    $adapters = $config->logger->adapters->toArray();
+    foreach ($adapters as $adapter => $options) {
+        $adapter_class = 'Phalcon\Logger\Adapter\\' . $adapter;
+        $logger->push(new $adapter_class($options));
+    }
+    return $logger;
 });
