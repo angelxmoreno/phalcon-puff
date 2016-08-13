@@ -11,7 +11,7 @@ return [
     'application' => [
         'controllersDir' => APP_PATH . 'controllers' . DS,
         'modelsDir' => APP_PATH . 'models' . DS,
-        'migrationsDir' => APP_PATH . 'migrations' . DS,
+        'migrationsDir' => ROOT_PATH . 'migrations' . DS,
         'viewsDir' => VIEWS_PATH,
         'pluginsDir' => APP_PATH . 'plugins' . DS,
         'libraryDir' => APP_PATH . 'library' . DS,
