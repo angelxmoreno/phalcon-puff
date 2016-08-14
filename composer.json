@@ -30,7 +30,7 @@
     "scripts": {
         "deploy": "git push heroku master",
         "start-dev": "php -S localhost:8000 -t public",
-        "test": "./bin/kahlan --spec=./tests/kahlan/spec/ --config=./tests/kahlan/kahlan-config.php --reporter=verbose",
+        "test": "./bin/kahlan --config=./tests/kahlan/kahlan-config.php",
         "post-install-cmd": "npm install"
     },
     "config": {
