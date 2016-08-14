@@ -1,11 +1,11 @@
 <?php
 return [
     'database' => [
-        'adapter' => 'Mysql',
-        'host' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'dbname' => 'test',
+        'adapter' => ucfirst(parse_url(getenv('DATABASE_URL'), PHP_URL_SCHEME)),
+        'host' => parse_url(getenv('DATABASE_URL'), PHP_URL_HOST),
+        'username' => parse_url(getenv('DATABASE_URL'), PHP_URL_USER),
+        'password' => parse_url(getenv('DATABASE_URL'), PHP_URL_PASS),
+        'dbname' => parse_url(getenv('DATABASE_URL'), PHP_URL_PATH),
         'charset' => 'utf8',
     ],
     'application' => [
