@@ -10,22 +10,23 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <a class="navbar-brand" href="/">Phalcon Puff</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="about.html">About</a>
+                    <a href="/about">About</a>
                 </li>
                 <li>
-                    <a href="services.html">Services</a>
+                    <a href="/services">Services</a>
                 </li>
                 <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="/contact">Contact</a>
                 </li>
+<!--
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+                    <a href class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="portfolio-1-col.html">1 Column Portfolio</a>
@@ -44,8 +45,9 @@
                         </li>
                     </ul>
                 </li>
+                
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+                    <a href class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="blog-home-1.html">Blog Home 1</a>
@@ -58,8 +60,9 @@
                         </li>
                     </ul>
                 </li>
+                
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+                    <a href class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="full-width.html">Full Width Page</a>
@@ -77,7 +80,8 @@
                             <a href="pricing.html">Pricing Table</a>
                         </li>
                     </ul>
-                </li>
+                </li>-->
+                
             </ul>
         </div>
         <!-- /.navbar-collapse -->
