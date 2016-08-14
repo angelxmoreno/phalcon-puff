@@ -20,10 +20,11 @@ return [
     ],
     'view' => [
         'options' => [
-            'compiledPath' => CACHE_PATH . 'views' . DS,
+            'compiledPath' => CACHE_PATH . 'compiled' . DS,
             'compiledExtension' => '.php',
             'compiledSeparator' => '__',
             'stat' => true,
+            'prefix' => 'view_',
             'compileAlways' => true,
         ]
     ],
@@ -31,6 +32,34 @@ return [
         'adapters' => [
             'FirePHP' => '',
             'File' => LOGS_PATH . 'app.log',
+        ]
+    ],
+    'cache' => [
+        'default' => [
+            'frontend' => [
+                'Data' => [
+                    'lifetime' => 172800
+                ]
+            ],
+            'backend' => [
+                'File' => [
+                    'cacheDir' => CACHE_PATH . 'data' . DS,
+                ]
+            ]
+        ],
+        
+        'database' => [
+            'frontend' => [
+                'Data' => [
+                    'lifetime' => 172800
+                ]
+            ],
+            'backend' => [
+                'File' => [
+                    'cacheDir' => CACHE_PATH . 'models' . DS,
+                    'prefix' => '_cached_data_'
+                ]
+            ]
         ]
     ]
 ];
