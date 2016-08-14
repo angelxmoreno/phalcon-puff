@@ -32,5 +32,33 @@ return [
             'FirePHP' => '',
             'File' => LOGS_PATH . 'app.log',
         ]
+    ],
+    'cache' => [
+        'default' => [
+            'frontend' => [
+                'Data' => [
+                    'lifetime' => 172800
+                ]
+            ],
+            'backend' => [
+                'File' => [
+                    'cacheDir' => CACHE_PATH . 'data' . DS,
+                ]
+            ]
+        ],
+        
+        'database' => [
+            'frontend' => [
+                'Data' => [
+                    'lifetime' => 172800
+                ]
+            ],
+            'backend' => [
+                'File' => [
+                    'cacheDir' => CACHE_PATH . 'models' . DS,
+                    'prefix' => '_cached_data_'
+                ]
+            ]
+        ]
     ]
 ];
