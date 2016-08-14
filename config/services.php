@@ -111,6 +111,20 @@ $di->setShared('logger', function () use ($config) {
     return $logger;
 });
 
+//Register Cache Engines
+if ($config->cache) {
+    foreach ($config->cache as $engine => $adapters) {
+        $di->setShared($engine.'cache', function()use($adapters) {
+            $frontend_class = 'Phalcon\Cache\Frontend\\'.key($adapters->frontend);
+            $frontend_instance = new $frontend_class(current($adapters->frontend->toArray()));
+
+            $backend_class = 'Phalcon\Cache\Backend\\'.key($adapters->backend);
+            $cache = new $backend_class($frontend_instance, current($adapters->backend->toArray()));
+            return $cache;
+        });
+    }
+}
+
 /**
  * Register Error Handler
  */
