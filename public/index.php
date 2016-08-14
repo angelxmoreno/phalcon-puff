@@ -1,8 +1,4 @@
 <?php
-use Phalcon\Mvc\Application as PhalconMvcApplication;
-use Phalcon\Config as PhalconConfig;
-
-error_reporting(E_ALL);
 define('DS', DIRECTORY_SEPARATOR);
 define('WEBROOT_PATH', __DIR__ . DS);
 define('ROOT_PATH', dirname(WEBROOT_PATH) . DS);
@@ -13,41 +9,42 @@ define('VIEWS_PATH', ROOT_PATH . 'views' . DS);
 define('VENDOR_PATH', ROOT_PATH . 'vendor' . DS);
 define('LOGS_PATH', ROOT_PATH . 'logs' . DS);
 
-try {
-    /**
-     * Set the default timezone
-     * This should always be UTC
-     */
-    date_default_timezone_set('UTC');
+use Phalcon\Mvc\Application;
+use Phalcon\Config as PhalconConfig;
 
-    /**
-     * Read the configuration
-     */
-    $config_array = require_once CONFIG_PATH . 'config.php';
-    $config = new PhalconConfig($config_array);
+//@TODO this should be handled by the Error Module
+error_reporting(E_ALL);
+/**
+ * Set the default timezone
+ * This should always be UTC
+ */
+date_default_timezone_set('UTC');
 
-    /**
-     * Read auto-loader
-     */
-    require_once CONFIG_PATH . 'loader.php';
+/**
+ * Read the configuration
+ */
+$config_array = require_once CONFIG_PATH . 'config.php';
+$config = new PhalconConfig($config_array);
 
-    /**
-     * Read services
-     */
-    require_once CONFIG_PATH . 'services.php';
+/**
+ * Read auto-loader
+ */
+require_once CONFIG_PATH . 'loader.php';
 
-    /**
-     * Handle the request
-     */
-    $application = new PhalconMvcApplication($di);
+/**
+ * Set the Application's ENV
+ */
+//@TODO make use of the config
+//@TODO consider moving to services
+\AXM\Error\Common::setDevelopment();
 
-    echo $application->handle()->getContent();
-} catch (\Exception $e) {
-    echo $e->getMessage() . '<br>';
-    echo '<pre>' . $e->getTraceAsString() . '</pre>';
-    $log_message = '"' . get_class($e) . '"';
-    $log_message .= ': "' . $e->getMessage() . '"';
-    $log_message .= ' file: "' . $e->getFile() . '"';
-    $log_message .= ' line: "' . $e->getLine() . '"';
-    $di->getShared('logger')->error($log_message);
-}
+/**
+ * Register services
+ */
+require_once CONFIG_PATH . 'services.php';
+
+/**
+ * Handle the request
+ */
+$application = new Application($di);
+echo $application->handle()->getContent();

@@ -16,3 +16,4 @@ A Phalcon Demo App
 12. Composer - https://getcomposer.org/
 13. NPM - https://www.npmjs.com/
 14. Bower - https://bower.io/
+15. Error module inspired by Incubator's Error handler - https://github.com/phalcon/incubator/tree/master/Library/Phalcon/Error
