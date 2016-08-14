@@ -7,7 +7,7 @@ logs/*
 !logs/.gitkeep
 
 #cache
-cache/views/*
-!cache/views/.gitkeep
+cache/compiled/*
+!cache/compiled/.gitkeep
 cache/data/*
 !cache/data/.gitkeep

@@ -20,10 +20,11 @@ return [
     ],
     'view' => [
         'options' => [
-            'compiledPath' => CACHE_PATH . 'views' . DS,
+            'compiledPath' => CACHE_PATH . 'compiled' . DS,
             'compiledExtension' => '.php',
             'compiledSeparator' => '__',
             'stat' => true,
+            'prefix' => 'view_',
             'compileAlways' => true,
         ]
     ],
