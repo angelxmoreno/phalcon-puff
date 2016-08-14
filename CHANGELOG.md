@@ -1,4 +1,5 @@
-WIP v0.2.0 - 2016-08-13 2:25am EST
+WIP v0.2.0 - <date>
+* Added Error handler
 * added logging
 * refactored directory structure
     * app dir is now src
