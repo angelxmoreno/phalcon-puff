@@ -1,4 +1,4 @@
-WIP v0.2.0 - <date>
+WIP v0.2.0 - 2016-08-14 6:22am EST
 * Added Error handler
 * added logging
 * refactored directory structure
