@@ -1,8 +1,9 @@
 <?php
+
 /**
  * Services are globally registered in this file
  *
- * @var \Phalcon\Config $config
+ * @var Phalcon\Config $config
  */
 use Phalcon\Di\FactoryDefault;
 use Phalcon\Mvc\Dispatcher;
@@ -13,6 +14,7 @@ use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
 use Phalcon\Logger\Multiple as MultiLogger;
 use AXM\Mvc\Router;
+use AXM\Error\Handler as ErrorHandler;
 
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
@@ -108,3 +110,12 @@ $di->setShared('logger', function () use ($config) {
     }
     return $logger;
 });
+
+/**
+ * Register Error Handler
+ */
+ErrorHandler::register(
+    $di->getShared('dispatcher'),
+    $di->getShared('view'),
+    $di->getShared('response')
+);
