@@ -24,8 +24,13 @@ class Router extends PhalconRouter
      * @param string $path
      * @param string $name
      */
-    public function addStatic($path, $name)
+    public function addStatic($path, $name = null)
     {
+        if(is_null($name)){
+            $name = str_replace('/', '', $path);
+            $path = '/' . $name;
+        }
+        
         $this->add($path, [
             'controller' => self::DEFAULT_STATIC_CONTROLLER,
             'action' => self::DEFAULT_STATIC_ACTION,
