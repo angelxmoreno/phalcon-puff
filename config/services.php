@@ -10,7 +10,6 @@ use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Files as MetaDataAdapter;
-use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
 use Phalcon\Logger\Multiple as MultiLogger;
 use AXM\Mvc\Router;
@@ -58,7 +57,6 @@ $di->setShared('view', function () use ($config) {
  * Database connection is created based in the parameters defined in the configuration file
  */
 $di->setShared('db', function () use ($config) {
-    //@TODO configure .env with config.php to load db
     $dbConfig = $config->database->toArray();
     $adapter = $dbConfig['adapter'];
     unset($dbConfig['adapter']);
@@ -91,9 +89,12 @@ $di->set('flash', function () {
 /**
  * Start the session the first time some component request the session service
  */
-$di->setShared('session', function () {
-    //@TODO use redis or something else
-    $session = new SessionAdapter();
+$di->setShared('session', function () use($config) {
+    $session_config = $config->sessions->toArray();
+    $adapter = $session_config['adapter'];
+    unset($session_config['adapter']);
+    $adapter_class = 'Phalcon\Session\Adapter\\' . $adapter;
+    $session = new $adapter_class($session_config);
     $session->start();
     return $session;
 });
@@ -114,12 +115,13 @@ $di->setShared('logger', function () use ($config) {
 //Register Cache Engines
 if ($config->cache) {
     foreach ($config->cache as $engine => $adapters) {
-        $di->setShared($engine.'cache', function()use($adapters) {
-            $frontend_class = 'Phalcon\Cache\Frontend\\'.key($adapters->frontend);
+        $di->setShared($engine . 'cache', function()use($adapters) {
+            $frontend_class = 'Phalcon\Cache\Frontend\\' . key($adapters->frontend);
             $frontend_instance = new $frontend_class(current($adapters->frontend->toArray()));
 
-            $backend_class = 'Phalcon\Cache\Backend\\'.key($adapters->backend);
+            $backend_class = 'Phalcon\Cache\Backend\\' . key($adapters->backend);
             $cache = new $backend_class($frontend_instance, current($adapters->backend->toArray()));
+            echo $backend_class;
             return $cache;
         });
     }

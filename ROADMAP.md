@@ -3,7 +3,6 @@ v0.3.0
     * Error module
     * Routing module
     * StaticPageController
-* .env integration
 * AuthService
     * User Model
     * Auth Controller
