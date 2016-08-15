@@ -1,12 +1,22 @@
 <?php
 return [
     'database' => [
-        'adapter' => 'Mysql',
-        'host' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'dbname' => 'test',
+        'adapter' => ucfirst(parse_url(getenv('DATABASE_URL'), PHP_URL_SCHEME)),
+        'host' => parse_url(getenv('DATABASE_URL'), PHP_URL_HOST),
+        'port' => parse_url(getenv('DATABASE_URL'), PHP_URL_PORT),
+        'username' => parse_url(getenv('DATABASE_URL'), PHP_URL_USER),
+        'password' => parse_url(getenv('DATABASE_URL'), PHP_URL_PASS),
+        'dbname' => parse_url(getenv('DATABASE_URL'), PHP_URL_PATH),
         'charset' => 'utf8',
+    ],
+    'sessions' => [
+        'adapter' => ucfirst(parse_url(getenv('SESSION_URL'), PHP_URL_SCHEME)),
+        'host' => parse_url(getenv('SESSION_URL'), PHP_URL_HOST),
+        'port' => parse_url(getenv('SESSION_URL'), PHP_URL_PORT),
+        'auth' => parse_url(getenv('SESSION_URL'), PHP_URL_PASS),
+        'persistent' => true,
+        'lifetime' => 2592000, //30 days
+        'prefix' => 'session_'
     ],
     'application' => [
         'controllersDir' => APP_PATH . 'controllers' . DS,
@@ -42,22 +52,28 @@ return [
                 ]
             ],
             'backend' => [
-                'File' => [
-                    'cacheDir' => CACHE_PATH . 'data' . DS,
+                'Redis' => [
+                    'adapter' => ucfirst(parse_url(getenv('CACHE_URL'), PHP_URL_SCHEME)),
+                    'host' => parse_url(getenv('CACHE_URL'), PHP_URL_HOST),
+                    'port' => parse_url(getenv('CACHE_URL'), PHP_URL_PORT),
+                    'auth' => parse_url(getenv('CACHE_URL'), PHP_URL_PASS),
+                    'persistent' => true
                 ]
             ]
         ],
-        
         'database' => [
             'frontend' => [
                 'Data' => [
-                    'lifetime' => 172800
+                    'lifetime' => 600 //10 minutes
                 ]
             ],
             'backend' => [
-                'File' => [
-                    'cacheDir' => CACHE_PATH . 'models' . DS,
-                    'prefix' => '_cached_data_'
+                'Redis' => [
+                    'adapter' => ucfirst(parse_url(getenv('MODELS_CACHE_URL'), PHP_URL_SCHEME)),
+                    'host' => parse_url(getenv('MODELS_CACHE_URL'), PHP_URL_HOST),
+                    'port' => parse_url(getenv('MODELS_CACHE_URL'), PHP_URL_PORT),
+                    'auth' => parse_url(getenv('MODELS_CACHE_URL'), PHP_URL_PASS),
+                    'persistent' => true
                 ]
             ]
         ]

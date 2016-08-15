@@ -1,5 +1,7 @@
 WIP v0.3.0 - <date>
+* .env integration
 * Added config-powered cache service
+
 v0.2.0 - 2016-08-14 6:22am EST
 * Added Error handler
 * added logging
