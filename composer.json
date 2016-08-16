@@ -31,7 +31,7 @@
         "deploy": "git push heroku master",
         "start-dev": "php -S localhost:8000 -t public",
         "test": "echo 'no tests yet'",
-        "post-install-cmd": "npm install"
+        "post-install-cmd": "./bin/build-config && npm install",
     },
     "config": {
         "bin-dir": "bin"

@@ -6,7 +6,7 @@ return [
         'port' => parse_url(getenv('DATABASE_URL'), PHP_URL_PORT),
         'username' => parse_url(getenv('DATABASE_URL'), PHP_URL_USER),
         'password' => parse_url(getenv('DATABASE_URL'), PHP_URL_PASS),
-        'dbname' => parse_url(getenv('DATABASE_URL'), PHP_URL_PATH),
+        'dbname' => trim(parse_url(getenv('DATABASE_URL'), PHP_URL_PATH), '/'),
         'charset' => 'utf8',
     ],
     'sessions' => [
@@ -19,8 +19,9 @@ return [
         'prefix' => 'session_'
     ],
     'application' => [
-        'controllersDir' => APP_PATH . 'controllers' . DS,
-        'modelsDir' => APP_PATH . 'models' . DS,
+        'modulesDir' => APP_PATH . 'Modules' .DS,
+        'controllersDir' => APP_PATH . 'Controllers' . DS,
+        'modelsDir' => APP_PATH . 'Models' . DS,
         'migrationsDir' => ROOT_PATH . 'migrations' . DS,
         'viewsDir' => VIEWS_PATH,
         'pluginsDir' => APP_PATH . 'plugins' . DS,
