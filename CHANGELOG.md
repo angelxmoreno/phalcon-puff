@@ -1,4 +1,5 @@
 WIP v0.3.0 - <date>
+* added composer run script to make migration easier
 * .env integration with config.php builder
 * Added config-powered cache service
 
