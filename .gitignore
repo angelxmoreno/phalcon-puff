@@ -12,4 +12,4 @@ cache/compiled/*
 cache/data/*
 !cache/data/.gitkeep
 
-config/config.php
+config/config.phpconfig/config.php
