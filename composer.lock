@@ -4,9 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a131458d2792c62555bcae3fcb7f9b9f",
-    "content-hash": "d08574d7d6bb2e03238c9997b271fa0b",
+    "hash": "6586db6fb44b10eba1c43a9263125d7e",
+    "content-hash": "79576a706d674826e4e7d3196c68fe52",
     "packages": [
+        {
+            "name": "cakephp/utility",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cakephp/utility.git",
+                "reference": "fafbb8e60e58c5c8116d4f1c0ef55cdc4e022f54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cakephp/utility/zipball/fafbb8e60e58c5c8116d4f1c0ef55cdc4e022f54",
+                "reference": "fafbb8e60e58c5c8116d4f1c0ef55cdc4e022f54",
+                "shasum": ""
+            },
+            "suggest": {
+                "ext-intl": "To use Text::transliterate() or Text::slug()"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cake\\Utility\\": "."
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "CakePHP Community",
+                    "homepage": "http://cakephp.org"
+                }
+            ],
+            "description": "CakePHP Utility classes such as Inflector, String, Hash, and Security",
+            "time": "2016-08-13 02:25:20"
+        },
         {
             "name": "cosenary/instagram",
             "version": "v2.3",

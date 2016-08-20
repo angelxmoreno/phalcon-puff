@@ -21,7 +21,8 @@
         "cosenary/instagram": "^2.3",
         "guzzlehttp/guzzle": "^6.2",
         "hybridauth/hybridauth": "^2.6",
-        "nesbot/carbon": "^1.21"
+        "nesbot/carbon": "^1.21",
+        "cakephp/utility": "^3.3"
     },
     "require-dev": {
         "crysalead/kahlan": "^2.5",
@@ -32,8 +33,9 @@
         "start-dev": "php -S localhost:8000 -t public",
         "test": "echo 'no tests yet'",
         "post-install-cmd": "./bin/build-config && npm install",
-        "migrate:generate":"./bin/phalcon.php migration --action=generate --config=./config/config.php --migrations=./migrations/",
-        "migrate:run":"./bin/phalcon.php migration --action=run --config=./config/config.php --migrations=./migrations/"
+        "migrate:generate": "./bin/phalcon.php migration --action=generate --config=./config/config.php --migrations=./migrations/",
+        "migrate:run": "./bin/phalcon.php migration --action=run --config=./config/config.php --migrations=./migrations/",
+        "config:generate": "./bin/config-generate"
     },
     "config": {
         "bin-dir": "bin"

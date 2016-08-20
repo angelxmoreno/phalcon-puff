@@ -19,7 +19,7 @@ return [
         'prefix' => 'session_'
     ],
     'application' => [
-        'modulesDir' => APP_PATH . 'Modules' .DS,
+        'modulesDir' => APP_PATH . 'Modules' . DS,
         'controllersDir' => APP_PATH . 'Controllers' . DS,
         'modelsDir' => APP_PATH . 'Models' . DS,
         'migrationsDir' => ROOT_PATH . 'migrations' . DS,
