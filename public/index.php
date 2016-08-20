@@ -8,9 +8,7 @@ define('CACHE_PATH', ROOT_PATH . 'cache' . DS);
 define('VIEWS_PATH', ROOT_PATH . 'views' . DS);
 define('VENDOR_PATH', ROOT_PATH . 'vendor' . DS);
 define('LOGS_PATH', ROOT_PATH . 'logs' . DS);
-
-use Phalcon\Mvc\Application;
-use Phalcon\Config as PhalconConfig;
+define('MODULES_PATH', ROOT_PATH . 'modules' . DS);
 
 //@TODO this should be handled by the Error Module
 error_reporting(E_ALL);
@@ -26,7 +24,7 @@ date_default_timezone_set('UTC');
 $config = require CONFIG_PATH . 'config.php';
 
 /**
- * Read auto-loader
+ * Read loaders
  */
 require_once CONFIG_PATH . 'loader.php';
 
@@ -38,12 +36,18 @@ require_once CONFIG_PATH . 'loader.php';
 \AXM\Error\Common::setDevelopment();
 
 /**
- * Register services
+ * Include services
  */
-require_once CONFIG_PATH . 'services.php';
+require CONFIG_PATH . 'services.php';
 
 /**
  * Handle the request
  */
-$application = new Application($di);
+$application = new \Phalcon\Mvc\Application($di);
+
+/**
+ * Include modules
+ */
+require __DIR__ . '/../config/modules.php';
+
 echo $application->handle()->getContent();
