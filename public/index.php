@@ -23,8 +23,7 @@ date_default_timezone_set('UTC');
 /**
  * Read the configuration
  */
-$config_array = require_once CONFIG_PATH . 'config.php';
-$config = new PhalconConfig($config_array);
+$config = require CONFIG_PATH . 'config.php';
 
 /**
  * Read auto-loader

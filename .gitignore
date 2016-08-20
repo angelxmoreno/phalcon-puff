@@ -11,3 +11,5 @@ cache/compiled/*
 !cache/compiled/.gitkeep
 cache/data/*
 !cache/data/.gitkeep
+
+config/config.php
