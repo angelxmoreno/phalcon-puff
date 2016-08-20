@@ -13,3 +13,4 @@ cache/data/*
 !cache/data/.gitkeep
 
 config/config.phpconfig/config.php
+config/config.php

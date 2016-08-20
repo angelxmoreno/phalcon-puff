@@ -10,7 +10,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "AXM\\": "src/"
+            "AXM\\": "src/",
+            "AXM\\StaticPages\\": "modules/StaticPages/"
         }
     },
     "require": {

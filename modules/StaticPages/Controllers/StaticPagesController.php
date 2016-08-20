@@ -1,12 +1,10 @@
 <?php
-namespace AXM\Controllers;
-
-class StaticPagesController extends BaseController
+namespace AXM\StaticPages\Controllers;
+use Phalcon\Mvc\Controller;
+class StaticPagesController extends Controller
 {
-
     public function IndexAction($page)
     {
-//        $this->view->pick('static-pages/about');
         $inferred_view = $this->getInferredView($page);
         $inferred_path = $this->getInferredPath($page);
         if (file_exists($inferred_path)) {
@@ -15,6 +13,11 @@ class StaticPagesController extends BaseController
             echo $inferred_view;
             die;
         }
+    }
+    
+    public function wtfAction()
+    {
+        echo 'wtf';
     }
 
     protected function getInferredView($page)

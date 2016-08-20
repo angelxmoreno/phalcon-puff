@@ -1,10 +1,10 @@
 <?php
-namespace AXM\Mvc;
+namespace AXM\StaticPages\Mvc;
 
 use Phalcon\Mvc\Router as PhalconRouter;
 
 /**
- * Class extending \Phalcon\Mvc\Router that adds StaticController awareness
+ * Class extending \Phalcon\Mvc\Router that adds StaticPagesController awareness
  *
  */
 class Router extends PhalconRouter
@@ -30,8 +30,11 @@ class Router extends PhalconRouter
             $name = str_replace('/', '', $path);
             $path = '/' . $name;
         }
-        
+        var_dump($path);
+        var_dump($name);
         $this->add($path, [
+            'namespace' => 'AXM\\Statics\\',
+            'module' => 'statics',
             'controller' => self::DEFAULT_STATIC_CONTROLLER,
             'action' => self::DEFAULT_STATIC_ACTION,
             3 => $name

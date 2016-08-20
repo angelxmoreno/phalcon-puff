@@ -31,7 +31,7 @@ $di->set('dispatcher', function () {
  * add routing capabilities
  */
 $di->set('router', function() {
-    $router = new AXM\Mvc\Router();
+    $router = new AXM\StaticPages\Mvc\Router();
     require_once CONFIG_PATH . 'routes.php';
     return $router;
 });
@@ -130,6 +130,6 @@ if ($config->cache) {
 /**
  * Register Error Handler
  */
-ErrorHandler::register(
-    $di->getShared('dispatcher'), $di->getShared('view'), $di->getShared('response')
-);
+//ErrorHandler::register(
+//    $di->getShared('dispatcher'), $di->getShared('view'), $di->getShared('response')
+//);

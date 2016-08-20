@@ -38,7 +38,7 @@ require_once CONFIG_PATH . 'loader.php';
 /**
  * Include services
  */
-require CONFIG_PATH . 'services.php';
+require_once CONFIG_PATH . 'services.php';
 
 /**
  * Handle the request
@@ -48,6 +48,6 @@ $application = new \Phalcon\Mvc\Application($di);
 /**
  * Include modules
  */
-require __DIR__ . '/../config/modules.php';
+require_once CONFIG_PATH . 'modules.php';
 
 echo $application->handle()->getContent();
