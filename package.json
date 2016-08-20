@@ -1,6 +1,6 @@
 {
   "name": "phalcon-puff",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A Phalcon Demo App",
   "main": "bin/index.js",
   "scripts": {
