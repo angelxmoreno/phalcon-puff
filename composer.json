@@ -10,7 +10,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "AXM\\": "src/"
+            "AXM\\": "src/",
+            "AXM\\Users\\": "modules/Users"
         }
     },
     "require": {
@@ -21,7 +22,8 @@
         "cosenary/instagram": "^2.3",
         "guzzlehttp/guzzle": "^6.2",
         "hybridauth/hybridauth": "^2.6",
-        "nesbot/carbon": "^1.21"
+        "nesbot/carbon": "^1.21",
+        "cakephp/utility": "^3.3"
     },
     "require-dev": {
         "crysalead/kahlan": "^2.5",

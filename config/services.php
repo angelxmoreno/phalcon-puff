@@ -12,22 +12,13 @@ use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Files as MetaDataAdapter;
 use Phalcon\Flash\Direct as Flash;
 use Phalcon\Logger\Multiple as MultiLogger;
-use AXM\Mvc\Router;
 use AXM\Error\Handler as ErrorHandler;
 
 /**
- * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
+ * The FactoryDefault Dependency Injector automatically registers the right services to provide a full stack framework
  */
 $di = new FactoryDefault();
-
-/**
- * add routing capabilities
- */
-$di->set('router', function() {
-    $router = new Router();
-    require_once CONFIG_PATH . 'routes.php';
-    return $router;
-});
+$di['config'] = $config;
 
 // Register the default dispatcher's namespace for controllers
 $di->set('dispatcher', function () {
@@ -37,9 +28,18 @@ $di->set('dispatcher', function () {
 });
 
 /**
+ * add routing capabilities
+ */
+$di->set('router', function() {
+    $router = new AXM\Mvc\Router();
+    require_once CONFIG_PATH . 'routes.php';
+    return $router;
+});
+
+/**
  * Setting up the view component
  */
-$di->setShared('view', function () use ($config) {
+$di->set('view', function () use ($config) {
     $view = new View();
     $view->setViewsDir($config->application->viewsDir);
     $view->registerEngines([
@@ -131,7 +131,5 @@ if ($config->cache) {
  * Register Error Handler
  */
 ErrorHandler::register(
-    $di->getShared('dispatcher'),
-    $di->getShared('view'),
-    $di->getShared('response')
+    $di->getShared('dispatcher'), $di->getShared('view'), $di->getShared('response')
 );
